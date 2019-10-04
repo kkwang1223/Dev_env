@@ -1,0 +1,26 @@
+[preset list]
+
+node_modules
+
+src
+-entries
+-js
+-mockups
+-server
+--lib
+-styles
+-templates
+--helpers
+--layouts
+--partials
+
+tools
+
+test
+
+.eslintrc
+.gitignore
+package-lock.json
+package.json
+README.md
+example.html
