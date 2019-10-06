@@ -6,13 +6,13 @@ module.exports = {
     entry: ['@babel/polyfill', './src/js/main.js', './src/sass/main.scss'],
     // compile, bundled js file enroll saving path & name
     output: {
-        path: path.resolve(__dirname, 'dist/js'),
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/bundle.js',
     },
-    // plugin: [
-    //     // compile, bundled CSS file enroll saving path & name
-    //     new MiniCssExtractPlugin({ filename: 'css/style.css' })
-    // ],
+    plugins: [
+        // compile, bundled CSS file enroll saving path & name
+        new MiniCssExtractPlugin({filename: 'css/style.css'})
+    ],
     module: {
         rules: [
             {
@@ -27,20 +27,18 @@ module.exports = {
                         presets: ['@babel/preset-env'],
                         plugins: ['@babel/plugin-proposal-class-properties']
                     }
-                }
+                },
             },
             {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: [
-                    "style-loader", // create style nodes from JS strings
-                    // MiniCssExtractPlugin.loader,
-                    "css-loader", // translates CSS into CommonJS
+                    MiniCssExtractPlugin.loader,
+                    // "style-loader", // create style nodes from JS strings
+                    'css-loader', // translates CSS into CommonJS
                     "sass-loader" // compiles Sass to CSS, using Node Sass by default
-                    // 'sass-loader?outputStyle=expanded',
-                    // 'sass-loader?outputStyle=compressed'
                 ],
-                exclude: /node_modules/
-            },
+            }
         ]
     },
     devtool: 'source-map',
