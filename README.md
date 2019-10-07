@@ -1,5 +1,5 @@
-# JavaScript Dev_env setting
-JavaScript 개발을 위한 기본 환경 세팅
+# JavaScript Webpack_env setting
+JavaScript 개발을 위한 webpack 기본 환경 세팅
 
 ## 개요
 
